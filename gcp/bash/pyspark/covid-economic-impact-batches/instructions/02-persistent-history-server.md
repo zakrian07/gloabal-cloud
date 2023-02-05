@@ -40,7 +40,8 @@ REGION= #Region to be used
 BUCKET_PHS= #Bucket name for Persistent History Server
 PHS_NAME = # Name for Persistent History Server
 ```
-
+export BUCKET_PHS=recommendationsbucketphs
+export PHS_NAME=recommendationsbucketphsname
 <br>
 
 ## 2. Create a bucket

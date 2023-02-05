@@ -71,7 +71,7 @@ gcloud alpha storage rm --recursive gs://$BUCKET_CODE
 Run the below command to delete Spark PHS
 
 ```
-gcloud dataproc clusters delete spark-phs \
+gcloud dataproc clusters delete $PHS_NAME  \
 	--region=${REGION} 
 ```
 

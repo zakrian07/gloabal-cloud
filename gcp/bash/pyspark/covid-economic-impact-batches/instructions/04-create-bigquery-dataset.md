@@ -32,7 +32,7 @@ Run the below in cloud shells coped to the project you selected-
 ```
 PROJECT_ID=$(gcloud config get-value project) = #current GCP project where we are building our use case
 BQ_DATASET_NAME = #BigQuery dataset to be created
-
+export BQ_DATASET_NAME=recommendationsbqsetname
 ```
 
 <br>

@@ -134,6 +134,10 @@ To query the data to find the list of stocks with highest stringency Index, run 
   
 ```
 
+
+select * from `datamigrationdf20may.recommendationsbqsetname.recommendationsbqsetname_ec_status` EC inner join `datamigrationdf20may.recommendationsbqsetname.recommendationsbqsetname_stocks` S on EC.stock_id=S.stock_id where stringency_index=(select max(stringency_index) from `datamigrationdf20may.recommendationsbqsetname.recommendationsbqsetname_ec_status`)
+
+
 **Note:** Edit all occurrences of <GCP-PROJECT-NAME> and <BQ-DATASET-NAME> to match the values of the variables PROJECT_ID,user_name and BQ_DATASET_NAME respectively
 
 <kbd>

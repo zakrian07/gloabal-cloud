@@ -34,11 +34,15 @@ We will use these throughout the lab. <br>
 Run the below in cloud shell coped to the project you selected-
 
 ```
+export PROJECT_ID=datamigrationdf20may
+
 PROJECT_ID= #Project ID
 REGION= #Region to be used
+export REGION=us-central1
 
 #User Managed Service Account 
 UMSA="serverless-spark" 
+export UMSA=serverless-spark
 
 # Note: Lowercase letters, numbers, hyphens allowed. All network names must be unique within the project
 VPC=
@@ -46,7 +50,9 @@ SUBNET=
 FIREWALL=
 
 ```
-
+export VPC=recommendationsvpc
+export SUBNET=spark-snet
+export FIREWALL=recommendationsfirewall
 <br>
 
 ## 2. Enable Google Dataproc API
@@ -168,3 +174,29 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 
 ```
                                    
+export PROJECT_ID=datamigrationdf20may
+export bq_datasetname=cluster_recommendations
+export bq_tablename=cluster_data
+export BUCKET_NAME=haritest
+#GCP region where all our resources will be created
+export REGION=us-central1
+export ZONE=us-central1-b
+
+
+export UMSA=serverless-spark
+export VPC=recommendationsvpc
+ #subnet which has private google access enabled
+export SUBNET=spark-snet
+export FIREWALL=recommendationsfirewall
+#bucket where our application logs created in the history server will be stored
+export BUCKET_PHS=recommendationsbucketphs
+export PHS_NAME=recommendationsbucketphsname
+#GCP bucket where our code, data and model files will be stored
+export BUCKET_CODE=recommendationsbucketcode
+ #BigQuery dataset where all the tables will be stored
+export BQ_DATASET_NAME=recommendationsbqsetname
+export NAME=recommendationsbqsetname
+export SERVICE_ACCOUNT=$UMSA@$PROJECT_ID.iam.gserviceaccount.com
+export SPARK_HOME=/home/singhera/Documents
+export TF_VAR_project_id=datamigrationdf20may
+export HISTORY_SERVER_NAME=harnath009                                  

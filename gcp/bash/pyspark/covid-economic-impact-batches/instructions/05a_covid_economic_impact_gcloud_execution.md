@@ -119,11 +119,11 @@ gcloud dataproc batches submit \
   --project $PROJECT_ID \
   --region $REGION \
   pyspark --batch $NAME-batch-${RANDOM} \
-  gs://$BUCKET_CODE/covid-economic-impact/00-scripts/covid_economic_impact_etl.py \
+  gs://$BUCKET_CODE/00-scripts/covid_economic_impact_etl.py \
   --jars gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar \
   --subnet $SUBNET \
   --service-account $SERVICE_ACCOUNT \
-  --history-server-cluster projects/$PROJECT_ID/regions/$REGION/clusters/$HISTORY_SERVER_NAME \
+  --history-server-cluster projects/$PROJECT_ID/regions/$REGION/clusters/$PHS_NAME \
   -- $PROJECT_ID $BQ_DATASET_NAME $BUCKET_CODE $NAME
 ```
 
@@ -135,7 +135,7 @@ Once the data preparation batch is completed, four new tables '<your_name_here>_
 
 To query the data to find the list of stocks with highest stringency Index, run the following query - 
 ```
-  select * from `<GCP-PROJECT-NAME>.<BQ-DATASET-NAME>.<user_name>_ec_status` EC inner join `<GCP-PROJECT-NAME>.<BQ-DATASET-NAME>.<user_name>_stocks` S on EC.stock_id=S.stock_id where stringency_index=(select max(stringency_index) from `<GCP-PROJECT-NAME>.<BQ-DATASET-NAME>.<user_name>_ec_status`)
+  select * from `datamigrationdf20may.recommendationsbqsetname.recommendationsbqsetname_ec_status` EC inner join `datamigrationdf20may.recommendationsbqsetname.recommendationsbqsetname_stocks` S on EC.stock_id=S.stock_id where stringency_index=(select max(stringency_index) from `datamigrationdf20may.recommendationsbqsetname.recommendationsbqsetname_ec_status`)
   
 ```
 

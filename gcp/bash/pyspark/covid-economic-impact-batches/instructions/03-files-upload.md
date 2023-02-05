@@ -34,7 +34,7 @@ Run the below in cloud shells coped to the project you selected-
 PROJECT_ID= #Project ID
 REGION= #Region to be used
 BUCKET_CODE= #bucket where code files and datasets will be uploaded
-
+export BUCKET_CODE=recommendationsbucketcode
 ```
 
 <br>
@@ -49,12 +49,12 @@ Run the following gcloud command in Cloud Shell to create the bucket to store da
 gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$BUCKET_CODE
 ```
 
+
+gsutil cp -r covid-economic-impact-batches/00-scripts gs://$BUCKET_CODE/covid-economic-impact-batches
+gsutil cp -r 01-covid-economic-impact-batches/datasets gs://$BUCKET_CODE/covid-economic-impact-batches
+
 <br>
-
-## 3. Uploading the repository to GCS Bucket:
-
-
-To upload the code repository, please follow the below steps:
+ the code repository, please follow the below steps:
 * Extract the compressed code repository folder to your local Machine
 * Next, navigate to the bucket created in previous step for storing the code and data files and upload the extracted code repository by using the 'Upload Folder' option in Google Cloud Storage Bucket as shown below:
 

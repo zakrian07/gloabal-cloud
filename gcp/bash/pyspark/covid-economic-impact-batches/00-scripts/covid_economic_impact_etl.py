@@ -37,10 +37,10 @@ bucket = bucket_name
 spark.conf.set("temporaryGcsBucket",bucket)
 
 # read stock data file
-stock_df = spark.read.options(inferSchema = True, header= True, delimiter=";").csv('gs://'+bucket_name+'/covid-economic-impact/01-datasets/stock.csv')
+stock_df = spark.read.options(inferSchema = True, header= True, delimiter=";").csv('gs://'+bucket_name+'/01-datasets/stock.csv')
 
 # read stringency data file
-stringency_df = spark.read.options(inferSchema = True, header= True, delimiter=";").csv('gs://'+bucket_name+'/covid-economic-impact/01-datasets/stringency.csv')
+stringency_df = spark.read.options(inferSchema = True, header= True, delimiter=";").csv('gs://'+bucket_name+'/01-datasets/stringency.csv')
 
 # extract columns to create country table
 country_table = stringency_df.selectExpr('Code as country_code','Country as country').dropDuplicates()
